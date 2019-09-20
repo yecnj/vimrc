@@ -12,21 +12,24 @@ set cursorline
 highlight Comment term=bold cterm=bold ctermfg=6
 syntax on
 
+autocmd FileType html setlocal ts=2 sts=2 sw=2
+autocmd FileType javscript setlocal ts=2 sts=2 sw=2
+
 func! Comment()
 	if &filetype == 'python'
-	exe "'<,'>norm i#"
+	exe "'<,'>norm i# "
 	
-	elseif &filetype == 'cpp'
-	exe "'<,'>norm i//"
+	elseif &filetype == 'cpp' || &filetype == 'javascript'
+	exe "'<,'>norm i// "
 	endif
 endfunc
 
 func! Decomment()
     if &filetype == 'python'
-    exe "'<,'>norm 1x"
-
-    elseif &filetype == 'cpp'
     exe "'<,'>norm 2x"
+
+    elseif &filetype == 'cpp' || &filetype == 'javascript'
+    exe "'<,'>norm 3x"
     endif
 endfunc
 
