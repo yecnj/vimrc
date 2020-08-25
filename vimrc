@@ -35,8 +35,8 @@ func! Newtab()
     exe ":e ."
 endfunc
 
-map <c-b> :tabprevious <cr>
-map <c-n> :tabnext <cr>
+map <c-k> :tabprevious <cr>
+map <c-j> :tabnext <cr>
 map <F12> :call Newtab() <cr>
 
 " highlight config
