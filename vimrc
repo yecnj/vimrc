@@ -1,5 +1,15 @@
-color twilight 
+" vim-plug
+call plug#begin('~/.vim/plugged')
+
+Plug 'itchyny/lightline.vim'
+Plug 'terryma/vim-multiple-cursors'
+
+call plug#end()
+
+" config
+color molokai
 set rnu
+set nu
 set expandtab
 set ts=4
 set shiftwidth=4
@@ -9,30 +19,17 @@ set autoindent
 set smartindent
 set hlsearch
 set cursorline
-highlight Comment term=bold cterm=bold ctermfg=6
+set smartindent cinwords=if,elif,else,for,while,try,except,finally,def,class
+set nocindent
+set colorcolumn=80,120
+
 syntax on
+filetype plugin indent on
 
 autocmd FileType html setlocal ts=2 sts=2 sw=2
 autocmd FileType javscript setlocal ts=2 sts=2 sw=2
 
-func! Comment()
-	if &filetype == 'python'
-	exe "'<,'>norm i# "
-	
-	elseif &filetype == 'cpp' || &filetype == 'javascript'
-	exe "'<,'>norm i// "
-	endif
-endfunc
-
-func! Decomment()
-    if &filetype == 'python'
-    exe "'<,'>norm 2x"
-
-    elseif &filetype == 'cpp' || &filetype == 'javascript'
-    exe "'<,'>norm 3x"
-    endif
-endfunc
-
+" shortcut config
 func! Newtab()
     exe ":tabnew"
     exe ":e ."
@@ -42,8 +39,10 @@ map <c-b> :tabprevious <cr>
 map <c-n> :tabnext <cr>
 map <F12> :call Newtab() <cr>
 
-vmap <c-c> <esc>:call Comment() <cr>
-vmap <c-x> <esc>:call Decomment() <cr>
+" highlight config
+highlight Comment term=bold cterm=bold ctermfg=6
+highlight Visual term=reverse cterm=reverse ctermbg=gray
+highlight CursorLine gui=underline cterm=underline ctermbg=NONE
 
-nmap <c-c> <esc>v:call Comment() <cr>
-nmap <c-x> <esc>v:call Decomment() <cr>
+" lightline config
+set laststatus=2
