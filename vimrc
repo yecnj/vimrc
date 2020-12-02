@@ -41,7 +41,7 @@ map <F12> :call Newtab() <cr>
 
 " highlight config
 highlight Comment term=bold cterm=bold ctermfg=6
-highlight Visual term=reverse cterm=reverse ctermbg=gray
+highlight Visual term=reverse cterm=reverse ctermfg=gray ctermbg=black
 highlight CursorLine gui=underline cterm=underline ctermbg=NONE
 
 " lightline config
