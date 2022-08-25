@@ -3,8 +3,12 @@ call plug#begin('~/.vim/plugged')
 
 Plug 'itchyny/lightline.vim'
 Plug 'mg979/vim-visual-multi', {'branch': 'master'}
+Plug 'towolf/vim-helm'
+Plug 'dense-analysis/ale'
 
 call plug#end()
+
+let g:ale_lint_delay = 0
 
 " config
 color molokai
@@ -19,6 +23,7 @@ set autoindent
 set smartindent
 set hlsearch
 set cursorline
+set cursorcolumn
 set smartindent cinwords=if,elif,else,for,while,try,except,finally,def,class
 set nocindent
 set colorcolumn=80,120
@@ -37,6 +42,8 @@ endfunc
 
 map <c-k> :tabprevious <cr>
 map <c-j> :tabnext <cr>
+map <F1> :ALENext <cr>
+map <F2> :ALEPrevious <cr>
 map <F12> :call Newtab() <cr>
 
 " highlight config
@@ -46,3 +53,6 @@ highlight CursorLine gui=underline cterm=underline ctermbg=NONE
 
 " lightline config
 set laststatus=2
+
+" newtrw list hide
+let g:netrw_list_hide='.*\.png$,.*\.pdf,.*\.mp4,.*\.mp3,.*\.jpg'
