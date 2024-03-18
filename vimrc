@@ -9,6 +9,7 @@ Plug 'dense-analysis/ale'
 call plug#end()
 
 let g:ale_lint_delay = 0
+let b:ale_linters = ['flake8', 'pylint']
 
 " config
 color molokai
